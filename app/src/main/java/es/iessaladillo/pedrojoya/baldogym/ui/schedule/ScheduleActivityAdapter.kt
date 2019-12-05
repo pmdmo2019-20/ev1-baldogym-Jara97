@@ -67,7 +67,7 @@ class TasksActivityAdapter : RecyclerView.Adapter<TasksActivityAdapter.ViewHolde
 
 
         fun bind(session:TrainingSession) {
-            lblParticipantes.text=session.participants.toString()
+            lblParticipantes.text=session.participants.toString()+"  Participants"
             lblHora.text=session.time
             lblActivity.text=session.name
             lblTrainer.text=session.trainer
