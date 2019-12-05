@@ -102,7 +102,7 @@ object LocalRepository : Repository {
         return trainingSessions
     }
 
-    fun joinSession(session: TrainingSession) {
+    override fun joinSession(session: TrainingSession) {
         list.filter { x->x.id==session.id }.last().apply {
             userJoined=!session.userJoined
             if(userJoined){
@@ -113,7 +113,10 @@ object LocalRepository : Repository {
             }
         }
 
+    }
 
+    override fun getSession(id:Long):TrainingSession{
+        return list.filter { x->x.id==id }.last()
     }
 
 }

@@ -9,6 +9,7 @@ import es.iessaladillo.pedrojoya.baldogym.ui.schedule.ScheduleActivityViewModel
 import es.iessaladillo.pedrojoya.baldogym.ui.schedule.ScheduleActivityViewModelFactory
 import androidx.activity.viewModels
 import es.iessaladillo.pedrojoya.baldogym.data.LocalRepository
+import kotlinx.android.synthetic.main.training_session_activity.*
 
 
 class TrainingSessionActivity : AppCompatActivity() {
@@ -16,14 +17,18 @@ class TrainingSessionActivity : AppCompatActivity() {
     private val localRepository= LocalRepository
 
     private val viewModel: TrainingSessionActivityViewModel by viewModels{
-        TrainingSessionActivityViewModelFactory(localRepository,application,)
+        TrainingSessionActivityViewModelFactory(localRepository,application,intent.getIntExtra("id",0).toLong())
     }
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.training_session_activity)
+        setUpViews()
     }
 
+    private fun setUpViews() {
+
+    }
 
 
 }
