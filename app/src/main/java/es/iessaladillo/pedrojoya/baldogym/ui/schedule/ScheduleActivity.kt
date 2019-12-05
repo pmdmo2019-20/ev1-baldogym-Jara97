@@ -27,11 +27,13 @@ class ScheduleActivity : AppCompatActivity() {
     private val listAdapter:TasksActivityAdapter=TasksActivityAdapter().apply {
         this.setOnItemClick { position->
             val session: TrainingSession =this.getItem(position)
+            this.setOnItemClick { position->
+                val session:TrainingSession=this.getItem(position)
+                viewModel.joinSession(session)
+            }
 
         }
     }
-
-
 
     private val viewModel: ScheduleActivityViewModel by viewModels{
         ScheduleActivityViewModelFactory(localRepository,application)
@@ -132,15 +134,13 @@ class ScheduleActivity : AppCompatActivity() {
             lblSun.setTextColor(resources.getColor(R.color.white))
         }
 
-        /*btnJoin.setOnClickListener {
-
-        }*/
 
     }
 
     private fun observe() {
         viewModel.sessions.observe(this){
             showSchedule(it)
+
         }
         viewModel.day.observe(this){
             if(it==WeekDay.MONDAY){

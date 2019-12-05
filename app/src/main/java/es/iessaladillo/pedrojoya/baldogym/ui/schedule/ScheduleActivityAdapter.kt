@@ -1,5 +1,6 @@
 package es.iessaladillo.pedrojoya.baldogym.ui.schedule
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,6 @@ class TasksActivityAdapter : RecyclerView.Adapter<TasksActivityAdapter.ViewHolde
 
     private var data: List<TrainingSession> = emptyList()
     private var onItemClick:((Int)->Unit)?=null
-    private var onItemCheck:((Int)->Unit)?=null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TasksActivityAdapter.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -29,10 +29,6 @@ class TasksActivityAdapter : RecyclerView.Adapter<TasksActivityAdapter.ViewHolde
         onItemClick=listener
     }
 
-
-    fun setOnItemCheck(listener:((Int)->Unit)){
-        onItemCheck=listener
-    }
 
 
     override fun onBindViewHolder(holder: TasksActivityAdapter.ViewHolder, position: Int) {
@@ -54,11 +50,11 @@ class TasksActivityAdapter : RecyclerView.Adapter<TasksActivityAdapter.ViewHolde
 
 
         init {
-            containerView.setOnClickListener{
+            btnJoin.setOnClickListener{
                 onItemClick?.invoke(adapterPosition)
             }
-            /*chkCompleted.setOnClickListener {
-                onItemCheck?.invoke(adapterPosition)
+            /*containerView.setOnClickListener {
+
             }*/
 
         }
@@ -73,6 +69,17 @@ class TasksActivityAdapter : RecyclerView.Adapter<TasksActivityAdapter.ViewHolde
             lblTrainer.text=session.trainer
             lblRoom.text=session.room
             imgActivity.setImageResource(session.photoResId)
+            if(session.userJoined){
+                btnJoin.background=btnJoin.resources.getDrawable(R.drawable.schedule_btn_quit_background)
+                btnJoin.setTextColor(Color.WHITE)
+                btnJoin.text=btnJoin.resources.getString(R.string.schedule_item_quit)
+            }
+            else{
+                btnJoin.background=btnJoin.resources.getDrawable(R.drawable.schedule_btn_join_background)
+                btnJoin.setTextColor(Color.BLACK)
+                btnJoin.text=btnJoin.resources.getString(R.string.schedule_item_join)
+            }
+
 
 
 

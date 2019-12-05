@@ -102,8 +102,18 @@ object LocalRepository : Repository {
         return trainingSessions
     }
 
-    fun joinSession() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    fun joinSession(session: TrainingSession) {
+        list.filter { x->x.id==session.id }.last().apply {
+            userJoined=!session.userJoined
+            if(userJoined){
+                participants=participants+1
+            }
+            else{
+                participants=participants-1
+            }
+        }
+
+
     }
 
 }

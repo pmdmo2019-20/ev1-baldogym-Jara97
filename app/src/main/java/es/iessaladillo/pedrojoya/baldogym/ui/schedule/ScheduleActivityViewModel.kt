@@ -52,8 +52,9 @@ class ScheduleActivityViewModel(private val repository: Repository, private val 
         querySessions()
     }
 
-    fun joinSession(session:TrainingSession,isJoined: Boolean){
-            LocalRepository.joinSession()
+    fun joinSession(session:TrainingSession){
+        LocalRepository.joinSession(session)
+        querySessions()
     }
 
 
