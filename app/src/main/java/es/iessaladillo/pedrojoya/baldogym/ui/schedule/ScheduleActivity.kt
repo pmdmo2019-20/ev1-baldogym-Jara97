@@ -1,5 +1,6 @@
 package es.iessaladillo.pedrojoya.baldogym.ui.schedule
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -17,6 +18,7 @@ import es.iessaladillo.pedrojoya.baldogym.R
 import es.iessaladillo.pedrojoya.baldogym.data.LocalRepository
 import es.iessaladillo.pedrojoya.baldogym.data.entity.TrainingSession
 import es.iessaladillo.pedrojoya.baldogym.data.entity.WeekDay
+import es.iessaladillo.pedrojoya.baldogym.ui.trainingsession.TrainingSessionActivity
 import kotlinx.android.synthetic.main.schedule_activity.*
 import kotlinx.android.synthetic.main.schedule_activity_item.*
 
@@ -25,12 +27,18 @@ class ScheduleActivity : AppCompatActivity() {
     private val localRepository= LocalRepository
 
     private val listAdapter:TasksActivityAdapter=TasksActivityAdapter().apply {
-        this.setOnItemClick { position->
-            val session: TrainingSession =this.getItem(position)
+
             this.setOnItemClick { position->
                 val session:TrainingSession=this.getItem(position)
                 viewModel.joinSession(session)
-            }
+
+
+        }
+        this.setOnImgClick {
+             position->
+                val session:TrainingSession=this.getItem(position)
+                startActivity(Intent(this@ScheduleActivity,TrainingSessionActivity::class.java)
+                    .putExtra("ID",session.id))
 
         }
     }

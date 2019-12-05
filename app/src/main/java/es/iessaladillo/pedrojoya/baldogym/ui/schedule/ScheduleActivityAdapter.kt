@@ -14,6 +14,7 @@ class TasksActivityAdapter : RecyclerView.Adapter<TasksActivityAdapter.ViewHolde
 
     private var data: List<TrainingSession> = emptyList()
     private var onItemClick:((Int)->Unit)?=null
+    private var onImgClick:((Int)->Unit)?=null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TasksActivityAdapter.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -27,6 +28,9 @@ class TasksActivityAdapter : RecyclerView.Adapter<TasksActivityAdapter.ViewHolde
 
     fun setOnItemClick(listener:((Int)->Unit)){
         onItemClick=listener
+    }
+    fun setOnImgClick(listener:((Int)->Unit)){
+        onImgClick=listener
     }
 
 
@@ -53,9 +57,9 @@ class TasksActivityAdapter : RecyclerView.Adapter<TasksActivityAdapter.ViewHolde
             btnJoin.setOnClickListener{
                 onItemClick?.invoke(adapterPosition)
             }
-            /*containerView.setOnClickListener {
-
-            }*/
+            containerView.setOnClickListener {
+                onImgClick?.invoke(adapterPosition)
+            }
 
         }
 
