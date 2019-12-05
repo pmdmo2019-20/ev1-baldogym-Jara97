@@ -7,6 +7,105 @@
     android:layout_height="match_parent"
     tools:context=".ui.schedule.ScheduleActivity">
 
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        style="@style/weekbar_element"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/lblMon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/weekbar_element"
+            android:text="@string/schedule_mon" />
+
+        <TextView
+            android:id="@+id/lblTues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/weekbar_element"
+            android:layout_weight="1"
+            android:text="@string/schedule_tue" />
+
+        <TextView
+            android:id="@+id/lblWed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/weekbar_element"
+            android:layout_weight="1"
+            android:text="@string/schedule_wed" />
+
+        <TextView
+            android:id="@+id/lblThu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/weekbar_element"
+            android:layout_weight="1"
+            android:text="@string/schedule_thu" />
+
+        <TextView
+            android:id="@+id/lblFri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/weekbar_element"
+            android:layout_weight="1"
+            android:text="@string/schedule_fri" />
+
+        <TextView
+            android:id="@+id/lblSat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/weekbar_element"
+            android:layout_weight="1"
+            android:text="@string/schedule_sat" />
+
+        <TextView
+            android:id="@+id/lblSun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/weekbar_element"
+            android:layout_weight="1"
+            android:text="@string/schedule_sun" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lstTasks"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblDay" />
+
+
+    <TextView
+        android:id="@+id/lblEmptyView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/schedule_lblEmptyView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/lblDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
     <!-- TODO -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

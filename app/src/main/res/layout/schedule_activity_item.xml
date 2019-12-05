@@ -10,4 +10,62 @@
 
     <!-- TODO -->
 
+    <TextView
+        android:id="@+id/lblHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_marginLeft="@dimen/session_vertical_margin"
+        app:layout_constraintBottom_toTopOf="@+id/lblTrainer"
+        app:layout_constraintStart_toEndOf="@+id/imgActivity" />
+
+    <TextView
+        android:id="@+id/lblTrainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/lblRoom"
+        app:layout_constraintStart_toStartOf="@+id/lblActivity" />
+
+    <TextView
+        android:id="@+id/lblRoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextViewgfhgfhfhgf"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgActivity" />
+
+    <Button
+        android:id="@+id/btnJoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/schedule_item_join"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblHora" />
+
+    <TextView
+        android:id="@+id/lblParticipantes"
+        android:layout_width="60dp"
+        android:layout_height="15dp"
+        android:text="@string/schedule_item_join"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnJoin" />
+
+    <ImageView
+        android:id="@+id/imgActivity"
+        android:layout_width="128px"
+        android:layout_height="128px"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblHora"
+        tools:srcCompat="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,18 @@ import java.util.concurrent.ThreadLocalRandom
 
 object LocalRepository : Repository {
 
-    // TODO:
+    private var listB:List<TrainingSession> = mutableListOf()
+    private var list:MutableList<TrainingSession> = mutableListOf()
+
+    init{
+        listB= createWeekSchedule()
+        list=listB.toMutableList()
+    }
+
+
+    fun getList():List<TrainingSession>{
+        return list
+    }
 
     private fun createWeekSchedule(): List<TrainingSession> {
 
@@ -89,6 +100,10 @@ object LocalRepository : Repository {
             }
         }
         return trainingSessions
+    }
+
+    fun joinSession() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }
