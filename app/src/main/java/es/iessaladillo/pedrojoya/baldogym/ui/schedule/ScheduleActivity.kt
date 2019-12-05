@@ -153,24 +153,31 @@ class ScheduleActivity : AppCompatActivity() {
         viewModel.day.observe(this){
             if(it==WeekDay.MONDAY){
                 lblMon.setTextColor(resources.getColor(R.color.white))
+                lblDay.text=it.name
             }
             else if(it==WeekDay.TUESDAY){
                 lblTues.setTextColor(resources.getColor(R.color.white))
+                lblDay.text=it.name
             }
             else if(it==WeekDay.WEDNESDAY){
                 lblWed.setTextColor(resources.getColor(R.color.white))
+                lblDay.text=it.name
             }
             else if(it==WeekDay.THURSDAY){
                 lblThu.setTextColor(resources.getColor(R.color.white))
+                lblDay.text=it.name
             }
             else if(it==WeekDay.FRIDAY){
                 lblFri.setTextColor(resources.getColor(R.color.white))
+                lblDay.text=it.name
             }
             else if(it==WeekDay.SATURDAY){
                 lblSat.setTextColor(resources.getColor(R.color.white))
+                lblDay.text=it.name
             }
             else if(it==WeekDay.SUNDAY){
                 lblSun.setTextColor(resources.getColor(R.color.white))
+                lblDay.text=it.name
             }
         }
 

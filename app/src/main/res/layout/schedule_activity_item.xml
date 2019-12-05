@@ -14,6 +14,7 @@
         android:id="@+id/lblHora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:text=""
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,6 +23,7 @@
         android:id="@+id/lblActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:text="TextView"
         android:layout_marginLeft="@dimen/session_vertical_margin"
         app:layout_constraintBottom_toTopOf="@+id/lblTrainer"
